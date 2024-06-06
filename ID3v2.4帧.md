@@ -1706,7 +1706,7 @@ iTunes将选择前两对（前4个值中）的最大值来调整整首歌曲。
 
 ### C.3.TCMP
 
-汇编标志。若内容为1则指示文件是汇编中的一部分，为0反之。
+合辑标志。若内容为1则指示文件是合辑的一部分，为0则相反。
 
 ### C.4.TSO2
 
@@ -1726,6 +1726,69 @@ Normalize是一种将音频文件音量调整到标准水平的工具。这对�
 
 ## D.附录D - TXXX帧常用定义
 
+本节为译者添加，列举了一些常用TXXX帧定义，仅供参考。
+
+本节部分内容来自：https://docs.google.com/spreadsheets/d/1mjYcKu34r-j0yitv7epEqmtBA7uDnhsCg5JpWbEGmIA/edit?pli=1&pli=1#gid=0
+
+### PERFORMER
+
+表演者，一般与TPE1同义，有些程序使用此帧存储合作者（Feat.）。
+
+### VERSION
+
+**[Vorbis注释建议]** 重混音信息。
+
+### MusicBrainz Album Type
+
+专辑类型。
+
+### iTunesCompilation
+
+**[Map3Tag]** 合辑。
+
+### COMPILATION
+
+**[foobar2000/Map3Tag]** 合辑。
+
+### MEDIA
+
+**[APE Tag]** 碟片号，一般与TPOS同义。
+
+**[APE Tag]** 来源媒体，一般与TMED同义。
+
+### CATALOG
+
+ENA/UPC编号。
+
+### MusicBrainz Album Release Country
+
+首次发布国家。
+
+### MOOD
+
+**[foobar2000]** 情绪，一般与TMOO同义。
+
+### ORIGFILENAME
+
+**[Vorbis注释建议]** 一般与TENC同义。
+
+**[foobar2000]** 可能与TOFN同义。
+
+### SOURCEMEDIA
+
+**[Vorbis注释建议]** 一般与TMED同义。
+
+### CONTACT
+
+**[Vorbis注释标准]** 创作者或贡献者的联系方式，通常为URL。
+
+### FILE
+
+**[APE Tag]** 文件位置或链接，一般与WOAF同义
+
+### LICENSE
+
+**[Vorbis注释建议]** 一般与WCOP同义。
 
 # 8.作者地址
 
