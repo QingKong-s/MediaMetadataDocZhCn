@@ -18,11 +18,11 @@ ID3v2.4.0的目的是尽可能接近ID3v2.3.0，以便尽可能方便地修改�
 
 **具体来源如下(可能不完全)：**
 
-+ https://id3.org/d3v2.3.0
-+ https://id3.org/id3v2.4.0-changes
-+ https://id3.org/id3v2.4.0-frames
-+ https://id3.org/id3v2.4.0-structure
-+ https://id3.org/Developer%20Information
++ <https://id3.org/d3v2.3.0>
++ <https://id3.org/id3v2.4.0-changes>
++ <https://id3.org/id3v2.4.0-frames>
++ <https://id3.org/id3v2.4.0-structure>
++ <https://id3.org/Developer%20Information>
 
 **若有其他非ID3官网来源，将在其出现的小节列出。**
 
@@ -1250,7 +1250,7 @@ $ O_i = (F_i / 2^b) * L $(四舍五入至最接近的整数)
 
 [ID3v2-strct]Martin Nilsson,"ID3 tag version 2.4.0 - Main Structure"
   
-<http//www.id3.org/id3v2.4.0-structure.txt>
+<http://www.id3.org/id3v2.4.0-structure.txt>
 
 [ISO-639-2] ISO/FDIS 639-2.Codes for the representation of names of languages, Part 2: Alpha-3code. Technical committee / subcommittee: TC 37 / SC 2
 
@@ -1298,9 +1298,9 @@ and ISO/IEC DIS 13818-3 Generic coding of moving pictures and associated audio i
 
 **本节部分内容来自：**
 
-+ https://zh.wikipedia.org
-+ https://www.chosic.com/music-genre-finder/
-+ https://rateyourmusic.com/genres/
++ <https://zh.wikipedia.org>
++ <https://www.chosic.com/music-genre-finder/>
++ <https://rateyourmusic.com/genres/>
 
 ID3v1中定义了以下流派：
 
@@ -1621,8 +1621,8 @@ iTunes将选择前两对(前4个值中)的最大值来调整整首歌曲。
 
 **本节部分内容来自：**
 
-+ https://wiki.hydrogenaud.io/index.php?title=ReplayGain_1.0_specification
-+ https://wiki.hydrogenaud.io/index.php?title=ReplayGain_legacy_metadata_formats
++ <https://wiki.hydrogenaud.io/index.php?title=ReplayGain_1.0_specification>
++ <https://wiki.hydrogenaud.io/index.php?title=ReplayGain_legacy_metadata_formats>
 
 #### C.2.1.重放增益简介
 
@@ -1792,7 +1792,7 @@ Normalize是一种将音频文件音量调整到标准水平的工具。这对�
 
 **本节部分内容来自：**
 
-+ https://docs.google.com/spreadsheets/d/1mjYcKu34r-j0yitv7epEqmtBA7uDnhsCg5JpWbEGmIA/edit?pli=1&pli=1#gid=0
++ <https://docs.google.com/spreadsheets/d/1mjYcKu34r-j0yitv7epEqmtBA7uDnhsCg5JpWbEGmIA/edit?pli=1&pli=1#gid=0>
 
 ### PERFORMER
 
