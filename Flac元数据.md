@@ -172,4 +172,4 @@ FLAC支持多达128种元数据块；目前定义的元数据块如下：
 
 # 版权
 
-**Copyright (c) 2000-2009 Josh Coalson, 2011-2022 Xiph.Org Foundation**
+**Copyright (C) 2000-2009 Josh Coalson, 2011-2022 Xiph.Org Foundation.**
