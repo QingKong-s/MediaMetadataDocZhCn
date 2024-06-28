@@ -27,7 +27,9 @@ ID3v2.4.0的目的是尽可能接近ID3v2.3.0，以便尽可能方便地修改�
 
 **若有其他非ID3官网来源，将在其出现的小节列出。**
 
-**译者非专业音乐人士，组织此文档仅用于软件开发，部分机翻错误已纠正，若有专业术语翻译错误或不合理的情况，请提交拉取请求或issue。**
+**译者非音乐或数字多媒体行业专业人士，组织此文档仅用于软件开发，部分机翻错误已纠正，若有专业术语翻译错误或不合理的情况，请提交拉取请求或issue。**
+
+**译者不对本文作任何保证，包括但不限于行文描述准确性的保证，读者应自行评判准确性并对可能因参考本文造成的错误承担一切责任。**
 
 # 1.目录
 
@@ -193,7 +195,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 + [4.2.1 TIT1 内容组描述](#tit1)
 + [4.2.1 TIT2 标题/歌曲名/内容描述](#tit2)
 + [4.2.1 TIT3 副标题/描述细化](#tit3)
-+ [4.2.3 TKEY 初始密钥](#tkey)
++ [4.2.3 TKEY 初始音调](#tkey)
 + [4.2.3 TLAN 语言](#tlan)
 + [4.2.3 TLEN 长度](#tlen)
 + [4.2.2 TMCL 音乐家参与列表](#tmcl)
@@ -208,18 +210,18 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 + [4.2.2 TPE2 乐队/管弦乐团/伴奏](#tpe2)
 + [4.2.2 TPE3 指挥/表演者细化](#tpe3)
 + [4.2.2 TPE4 口译/重混音/其他方式修改者](#tpe4)
-+ [4.2.1 TPOS 作品集的一部分](#tpos)
++ [4.2.1 TPOS 音频集部分](#tpos)
 + [4.2.4 TPRO 制作通知](#tpro)
 + [4.2.4 TPUB 发布者](#tpub)
-+ [4.2.1 TRCK 音轨号/在音集中的位置](#trck)
++ [4.2.1 TRCK 音轨号/集内位置](#trck)
 + [4.2.4 TRSN 互联网广播电台名称](#trsn)
 + [4.2.4 TRSO 网络广播电台所有者](#trso)
 + [4.2.5 TSOA 专辑排序顺序](#tsoa)
 + [4.2.5 TSOP 演奏者排序顺序](#tsop)
 + [4.2.5 TSOT 标题排序顺序](#tsot)
 + [4.2.1 TSRC ISRC(国际标准录音编码)](#tsrc)
-+ [4.2.5 TSSE 编码使用的软件/硬件和设置](#tsse)
-+ [4.2.1 TSST 节目集字幕](#tsst)
++ [4.2.5 TSSE 编码器](#tsse)
++ [4.2.1 TSST 集副标题](#tsst)
 + [4.2.6 TXXX 用户定义的文本信息帧](#426用户定义的文本信息帧txxx)
 + [4.1 UFID 唯一文件标识符](#41唯一文件标识符ufid)
 + [4.22 USER 使用条款](#422使用条款user)
@@ -250,7 +252,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 |名称|内容|
 |-|-|
 |文本编码|`$xx`|
-|信息|<根据文本编码信息编码的文本字符串>|
+|信息|<指定编码的文本字符串>|
 
 ## 4.2.1.标识帧
 
@@ -280,11 +282,11 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 
 ### TPOS
 
-"作品集部分"帧是一个数字字符串，用于描述音频来自音频集的哪一部分。如果"TALB"帧中描述的音源被分为几种介质(如双CD)，则使用该帧。该值可以用一个"/"字符和一个数字字符串扩展，数字字符串包含音源集的总部分数。例如"1/2"。
+"音频集部分"帧是一个数字字符串，用于描述音频来自音频集的哪一部分。如果"TALB"帧中描述的音源被分为几种介质(如双CD)，则使用该帧。该值可以用一个"/"字符和一个数字字符串扩展，数字字符串包含音源集的总部分数。例如"1/2"。
 
 ### TSST
 
-"节目集字幕"帧用于显示该音轨所属节目集部分的字幕。
+"集副标题"帧用于显示该音轨所属集部分的副标题。
 
 > *此帧为ID3v2.4新增帧*
 
@@ -308,7 +310,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 
 > **译者注**
 >
-> TPE2帧常用作保存专辑艺术家
+> TPE2帧常用作保存专辑艺术家。
 
 ### TPE3
 
@@ -394,7 +396,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 >
 > + `RX` 混音
 > + `CR` 翻唱
-
+>
 > **ID3v2.3**
 >
 > ID3v1流派可以通过第一个字节输入`"("`，后跟流派列表([附录A](#a附录a---id3v1中的流派列表))中的数字，并以`")"`字符结尾。这可以选择性地跟一个细化，例如`"(21)"`或`"(4)Eurodisco"`。可以在同一帧中引用多个流派，例如`"(51)(39)"`。如果细化应以`"("`字符开头，则应将其替换为`"(("`，例如`"((我可以弄清楚任何流派)"`或`"(55)(我认为…)"`。以下新内容类型在ID3v2中定义，并以与数字内容类型相同的方式实现，例如`"(RX)"`。
@@ -410,7 +412,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 
 |MIME|解释|
 |-|-|
-|MPG|MPEG 音频|
+|MPG|MPEG(运动图像专家组)音频|
 |&emsp;&emsp;/1|MPEG 1/2 第 I 层|
 |&emsp;&emsp;/2|MPEG 1/2 第 II 层|
 |&emsp;&emsp;/3|MPEG 1/2 第 III 层|
@@ -428,74 +430,74 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 > **ID3v2.4**
 >
 > 例如`"VID/PAL/VHS" $00`。
-
+>
 > **ID3v2.3**
 >
 > 引用在`"("`和`")"`内，并可选择性地跟有文本细化，例如`"(MC)有四个通道"`。如果文本细化应以`"("`字符开头，则应将其替换为`"(("`，就像在"TCON"帧中一样。预定义的细化附加在媒体类型之后，例如`"(CD/A)"`或`"(VID/PAL/VHS)"`。
 >
 > *(译者注：原文"If a text refinement should begin with a "(" character it should be replaced with "((" in the same way as in the "TCO" frame."，其中"TCO"为ID3v2.2中的旧名称，此处应为"TCON")*
 
-|||
+|名称|备注|
 |-|-|
 |DIG|其他数字媒体|
 |&emsp;&emsp;/A|从媒体进行模拟传输|
 |ANA|其他模拟介质|
 |&emsp;&emsp;/WAC|蜡筒|
 |&emsp;&emsp;/8CA|8轨磁带盒|
-|CD|光盘|
+|CD|激光唱片|
 |&emsp;&emsp;/A|从媒体进行模拟传输|
-|&emsp;&emsp;/DD|DDD|
-|&emsp;&emsp;/AD|ADD|
-|&emsp;&emsp;/AA|AAD|
-|LD|激光唱片|
+|&emsp;&emsp;/DD|DDD(数字录音、数字母带、数字媒体)|
+|&emsp;&emsp;/AD|ADD(模拟录音、数字母带、数字媒体)|
+|&emsp;&emsp;/AA|AAD(模拟录音、模拟母带、数字媒体)|
+|LD|激光视盘|
 |&emsp;&emsp;/A|从媒体进行模拟传输 **(仅ID3v2.3)**|
-|TT|唱盘唱片|
-|&emsp;&emsp;/33|33.33rpm|
-|&emsp;&emsp;/45|45rpm|
-|&emsp;&emsp;/71|71.29rpm|
-|&emsp;&emsp;/76|76.59rpm|
-|&emsp;&emsp;/78|78.26rpm|
-|&emsp;&emsp;/80|80rpm|
+|TT|留声机唱片|
+|&emsp;&emsp;/33|33.33转每分|
+|&emsp;&emsp;/45|45转每分|
+|&emsp;&emsp;/71|71.29转每分|
+|&emsp;&emsp;/76|76.59转每分|
+|&emsp;&emsp;/78|78.26转每分|
+|&emsp;&emsp;/80|80转每分|
 |MD|微型光盘|
-|&emsp;&emsp;/A|媒体模拟传输|
-|DAT|DAT|
-|&emsp;&emsp;/A|媒体模拟传输|
-|&emsp;&emsp;/1|标准，48kHz/16比特，线性|
+|&emsp;&emsp;/A|从媒体进行模拟传输|
+|DAT|数码录音带|
+|&emsp;&emsp;/A|从媒体进行模拟传输|
+|&emsp;&emsp;/1|标准，48kHz/16位，线性|
 |&emsp;&emsp;/2|模式2，32kHz/16位，线性|
 |&emsp;&emsp;/3|模式3，32kHz/12位，非线性，低速|
 |&emsp;&emsp;/4|模式4，32kHz/12位，4通道|
 |&emsp;&emsp;/5|模式5，44.1KHz/16位，线性|
 |&emsp;&emsp;/6|模式6，44.1kHz/16位，"宽轨道"播放|
-|DCC|DCC|
+|DCC|数位盒式磁带录音机|
 |&emsp;&emsp;/A|从媒体进行模拟传输|
-|DVD|DVD|
+|DVD|数字多功能光盘|
 |&emsp;&emsp;/A|从媒体进行模拟传输|
 |TV|电视|
-|&emsp;&emsp;/PAL|PAL|
-|&emsp;&emsp;/NTSC|NTSC|
-|&emsp;&emsp;/SECAM|SECAM|
+|&emsp;&emsp;/PAL|PAL(逐行倒相)|
+|&emsp;&emsp;/NTSC|NTSC(美国国家电视系统委员会标准)|
+|&emsp;&emsp;/SECAM|SECAM(按序传送彩色与存储)|
 |VID|视频|
-|&emsp;&emsp;/PAL|PAL|
-|&emsp;&emsp;/NTSC|NTSC|
-|&emsp;&emsp;/SECAM|SECAM|
-|&emsp;&emsp;/VHS|VHS|
-|&emsp;&emsp;/SVHS|S-VHS|
+|&emsp;&emsp;/PAL|PAL(逐行倒相)|
+|&emsp;&emsp;/NTSC|NTSC(美国国家电视系统委员会标准)|
+|&emsp;&emsp;/SECAM|SECAM(按序传送彩色与存储)|
+|&emsp;&emsp;/VHS|VHS(家用录像系统)|
+|&emsp;&emsp;/SVHS|S-VHS(模拟家用录像系统)|
 |&emsp;&emsp;/BETA|BETAMAX|
 |RAD|广播|
 |&emsp;&emsp;/FM|调频|
 |&emsp;&emsp;/AM|调幅|
-|&emsp;&emsp;/LW|LW|
-|&emsp;&emsp;/MW|MW|
+|&emsp;&emsp;/LW|长波|
+|&emsp;&emsp;/MW|中波|
 |TEL|电话|
-|&emsp;&emsp;/I|ISDN|
-|MC|MC(普通盒式磁带)|
+|&emsp;&emsp;/I|ISDN(综合业务数字网)|
+|MC|普通盒式磁带|
 |&emsp;&emsp;/4|4.75厘米/秒(双面盒式磁带的正常速度)|
 |&emsp;&emsp;/9|9.5厘米/秒|
 |&emsp;&emsp;/I|I型盒式磁带(铁/普通)|
 |&emsp;&emsp;/II|II型磁带(铬)|
 |&emsp;&emsp;/III|III型盒式磁带(铬铁)|
 |&emsp;&emsp;/IV|IV型磁带盒(金属)|
-|REE|卷筒|
+|REE|磁带卷筒|
 |&emsp;&emsp;/9|9.5厘米/秒|
 |&emsp;&emsp;/19|19厘米/秒|
 |&emsp;&emsp;/38|38厘米/秒|
@@ -550,7 +552,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 > **ID3v2.4**
 >
 > "播放列表延迟"定义了应在音频前插入的静音毫秒数。值为0表示该音频是多文件音轨的一部分，应连续播放。
-
+>
 > **ID3v2.3**
 >
 > "播放列表延迟"定义了播放列表中每首歌曲之间的静默毫秒数。播放器应使用"ETCO"帧(如果有的话)跳过初始静默和音频末尾的静默，以匹配"播放列表延迟"时间。时间以数字字符串表示。
@@ -616,8 +618,8 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 |名称|内容|
 |-|-|
 |文本编码|`$xx`|
-|描述|<根据编码的文本字符串> `$00 (00)`|
-|值|<根据编码的文本字符串>|
+|描述|<指定编码的文本字符串> `$00 (00)`|
+|值|<指定编码的文本字符串>|
 
 ## 4.3.URL链接帧("W000"-"WZZZ"，"[WXXX](#432用户定义的url链接帧wxxx)"除外)
 
@@ -668,7 +670,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 |名称|内容|
 |-|-|
 |文本编码|`$xx`|
-|描述|<根据编码的文本字符串> `$00 (00)`|
+|描述|<指定编码的文本字符串> `$00 (00)`|
 |URL|<文本字符串>|
 
 ## 4.4.音乐CD标识符(MCDI)
@@ -782,8 +784,8 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 |-|-|
 |文本编码|`$xx`|
 |语言|`$xx xx xx`|
-|内容描述符|<根据编码的文本字符串> `$00 (00)`|
-|歌词/文本|<根据编码的完整文本字符串>|
+|内容描述符|<指定编码的文本字符串> `$00 (00)`|
+|歌词/文本|<指定编码的完整文本字符串>|
 
 ## 4.9.同步歌词/文本(SYLT)
 
@@ -795,7 +797,7 @@ ASPI、AENC、ETCO、EQU2、MLLT、POSS、SEEK、SYLT、SYTC、RVA2、TENC、TLE
 |语言|`$xx xx xx`|
 |时间戳格式|`$xx`|
 |内容类型|`$xx`|
-|内容描述符|<根据编码的文本字符串> `$00 (00)`|
+|内容描述符|<指定编码的文本字符串> `$00 (00)`|
 
 内容类型：
 
@@ -853,8 +855,8 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 |-|-|
 |文本编码|`$xx`|
 |语言|`$xx xx xx`|
-|简短内容描述|<根据编码的文本字符串> `$00 (00)`|
-|实际文本|<根据编码的完整文本字符串>|
+|简短内容描述|<指定编码的文本字符串> `$00 (00)`|
+|实际文本|<指定编码的完整文本字符串>|
 
 ## 4.11.相对音量调整(2)(RVA2)
 
@@ -952,7 +954,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 |文本编码|`$xx`|
 |MIME类型|<文本字符串> `$00`|
 |图片类型|`$xx`|
-|描述|<根据编码的文本字符串> `$00 (00)`|
+|描述|<指定编码的文本字符串> `$00 (00)`|
 |图片数据|<二进制数据>|
 
 图片类型：
@@ -977,7 +979,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 + `$11` 艳鱼图
 + `$12` 插图
 + `$13` 乐队/艺术家标志
-+ `$14` 出版商/工作室徽标
++ `$14` 出版商/工作室标志
 
 ## 4.15.一般封装对象(GEOB)
 
@@ -987,8 +989,8 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 |-|-|
 |文本编码|`$xx`|
 |MIME类型|<文本字符串> `$00`|
-|文件名|<根据编码的文本字符串> `$00 (00)`|
-|内容描述|<根据编码的文本字符串> `$00 (00)`|
+|文件名|<指定编码的文本字符串> `$00 (00)`|
+|内容描述|<指定编码的文本字符串> `$00 (00)`|
 |封装对象|<二进制数据>|
 
 ## 4.16.播放计数器(PCNT)
@@ -1053,7 +1055,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 > **ID3v2.4**
 >
 > 可以链接且无需附加数据的帧有："ETCO"、"MCID"、"MLLT"、"SYTC"、"RVA2"、"EQU2"、"RVRB"、"OWNE"、"ASPI"、文本信息帧和URL链接帧。
-
+>
 > **ID3v2.3**
 >
 > 可以链接且无需附加数据的帧有："ETCO"、"MCID"、"MLLT"、"SYTC"、"RVAD"、"EQUA"、"RVRB"、"RBUF"、"IPLS"、文本信息帧和URL链接帧。
@@ -1091,7 +1093,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 > **ID3v2.4**
 >
 > 一个标签中可以有多个"USER"帧，但只能有一个使用相同的"语言"。
-
+>
 > **ID3v2.3**
 >
 > 一个标签中只能有一个"USER"帧
@@ -1100,7 +1102,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 |-|-|
 |文本编码|`$xx`|
 |语言|`$xx xx xx`|
-|实际文本|<根据编码的文本字符串>|
+|实际文本|<指定编码的文本字符串>|
 
 ## 4.23.所有权(OWNE)
 
@@ -1111,7 +1113,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 |文本编码|`$xx`|
 |支付的价格|<文本字符串> `$00`|
 |购买日期|<文本字符串>|
-|卖方|<根据编码的文本字符串>|
+|卖方|<指定编码的文本字符串>|
 
 ## 4.24.商业(COMR)
 
@@ -1142,8 +1144,8 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 |有效期至|<文本字符串>|
 |联系URL|<文本字符串> `$00`|
 |接收为|`$xx`|
-|卖家名称|<根据编码的文本字符串> `$00 (00)`|
-|描述|<根据编码的文本字符串> `$00 (00)`|
+|卖家名称|<指定编码的文本字符串> `$00 (00)`|
+|描述|<指定编码的文本字符串> `$00 (00)`|
 |图片MIME类型|<字符串> `$00`|
 |卖家Logo|<二进制数据>|
 
@@ -1153,7 +1155,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 > **ID3v2.4**
 >
 > 范围为`$80-$F0`。所有其他值均为保留值。
-
+>
 > **ID3v2.3**
 >
 > 小于`$80`的值为保留值。
@@ -1182,7 +1184,7 @@ xx " the" $00 xx xx " night" $00 xx xx 0A "Ex" $00 xx xx "chang" $00 xx xx "ing"
 
 > **ID3v2.3**
 >
-> 建议尽可能减少"PRIV"帧的数量
+> 建议尽可能减少"PRIV"帧的数量。
 
 |名称|内容|
 |-|-|
@@ -1317,7 +1319,7 @@ and ISO/IEC DIS 13818-3 Generic coding of moving pictures and associated audio i
 
 ### B.1.ID3v2.4中的新增帧
 
-+ [4.2.1 TSST 节目集字幕](#tsst)
++ [4.2.1 TSST 集副标题](#tsst)
 + [4.2.2 TMCL 音乐家参与列表](#tmcl)
 + [4.2.2 TIPL 参与人员列表](#tipl)
 + [4.2.3 TMOO 情绪](#tmoo)
@@ -1398,7 +1400,7 @@ and ISO/IEC DIS 13818-3 Generic coding of moving pictures and associated audio i
 |名称|内容|
 |-|-|
 |文本编码|`$xx`|
-|人员列表字符串|<根据编码的文本字符串>|
+|人员列表字符串|<指定编码的文本字符串>|
 
 > 由[TMCL](#tmcl)和[TIPL](#tipl)帧取代
 
@@ -1454,7 +1456,7 @@ and ISO/IEC DIS 13818-3 Generic coding of moving pictures and associated audio i
 
 "调整位"字段定义用于表示调整的位数。对于MPEG 2第I、II和III层[MPEG]和MPEG 2.5，该值通常为`$10`(16 位)。该值不得为`$00`。
 
-接下来是`2个字节+("调整位"四舍五入到最接近的字节)`，每个均衡带的格式如下，频率范围为0-32767Hz：
+接下来是2个字节+("调整位"四舍五入到最接近的字节)，每个均衡带的格式如下，频率范围为0-32767Hz：
 
 |名称|内容|
 |-|-|
@@ -1796,7 +1798,7 @@ ID3v2解码器遇到"CRM"帧时，应将数据块与相应的"所有者标识符
 
 > **译者注**
 >
-> 所有者标识符和描述字段可能仅允许IS0-8859-1编码，也就是说此处`$00 (00)`很有可能为错标。因为在ID3v2.2文档中有相当多的URL或所有者标识符等仅允许ISO-8859-1编码的字段标注了结束符为`$00 (00)`，它们在ID3v2.3标准文档中都被改为了正确的`$00`。
+> 所有者标识符和描述字段可能仅允许ISO-8859-1编码，也就是说此处`$00 (00)`很有可能为错标。一是因为此处没有指定文本编码的字段；二是因为在ID3v2.2文档中有相当多的URL或所有者标识符等仅允许ISO-8859-1编码的字段标注了结束符为`$00 (00)`，它们在ID3v2.3标准文档中都被改为了正确的`$00`。
 
 ### E.4.ID3v2.2与ID3v2.3同义异名对照表
 
