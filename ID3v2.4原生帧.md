@@ -1524,7 +1524,7 @@ iTunes将选择前两对(前4个值中)的最大值来调整整首歌曲。
 |含义|键|值格式|
 |-|-|-|
 |音轨重放增益|REPLAYGAIN_TRACK_GAIN|`[-]a.bb dB`|
-|音轨振幅峰值|REPLAYGAIN_TRACK_PEAK|`c.dddddd`|
+|音轨峰值振幅|REPLAYGAIN_TRACK_PEAK|`c.dddddd`|
 |专辑重放增益|REPLAYGAIN_ALBUM_GAIN|`[-]a.bb dB`|
 |专辑峰值振幅|REPLAYGAIN_ALBUM_PEAK|`c.dddddd`|
 
