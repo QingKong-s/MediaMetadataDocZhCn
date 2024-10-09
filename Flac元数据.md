@@ -2,6 +2,8 @@
 
 ## 备注
 
+**本节为译者添加。**
+
 **翻译自：**
 
 + <https://xiph.org/flac/documentation_format_overview.html>
