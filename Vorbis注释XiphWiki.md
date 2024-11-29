@@ -55,6 +55,7 @@ Vorbis注释是使用Xiph.Org编解码器存储元数据的最简单、支持最
 + [3.其他(非建议字段名称)](#3其他非建议字段名称)
   + [3.1.VCLT播放列表格式](#31vclt播放列表格式)
 + [4.实现](#4实现)
++ [5.版权](#5版权)
 
 # 1.推荐字段名
 
@@ -336,3 +337,7 @@ VCLT播放列表格式使用了一些看起来像Vorbis注释的键，但它们�
 + OggImporter - 将Ogg Vorbis和Ogg FLAC文件导入Spotlight
 + vorbiscomment – 命令行工具，是[VorbisTools](https://wiki.xiph.org/VorbisTools)的一部分
 + oggz-comment - 命令行工具，是[Oggz](https://wiki.xiph.org/Oggz)工具的一部分。它可以为多轨文件和视频文件添加注释
+
+# 5.版权
+
+**Content is available under CC BY 3.0 and revised BSD unless otherwise noted.**
